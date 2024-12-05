@@ -16,6 +16,7 @@
 <body class="position-relative">
     <header class="w-100 shadow-sm mt-4 p-2 flex justify-between">
         <h1 class="text-4xl ">Rosales</h1>
+        
         <div>
             <label class="swap swap-rotate">
 
@@ -37,6 +38,31 @@
             </label>
         </div>
     </header>
+    <div id="onirix-canvas"></div>
+
+    <!-- SDK de Onirix -->
+    <script src="https://cdn.onirix.com/web-sdk/onirix-sdk.min.js"></script>
+
+    <script>
+        // Configura el ID del proyecto (cópialo desde Onirix Studio)
+        const projectId = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQ3MjU4LCJwcm9qZWN0SWQiOjk2MjUxLCJyb2xlIjozLCJpYXQiOjE3MzMzNTIxOTV9.1hg-PnTQfTjl8PTQHJZkZhGZ_j-2tR0W_Mr-ogKC5oA";
+
+        // Inicializar Onirix
+        const ox = new OnirixSDK({
+            projectId: projectId,
+            container: document.getElementById("onirix-canvas"),
+        });
+
+        // Cargar la experiencia AR
+        ox
+            .start()
+            .then(() => {
+                console.log("AR iniciado con éxito");
+            })
+            .catch((error) => {
+                console.error("Error al iniciar AR:", error);
+            });
+    </script>
     <div class="py-5 aps gap-4 flex justify-center items-center">
 
         <div class="mockup-phone">
